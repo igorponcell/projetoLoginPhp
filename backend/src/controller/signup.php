@@ -18,8 +18,10 @@ if(strlen($_POST['name']) < 3) {
 }
 
 //validate mail
-if(!filter_var($mail, FILTER_VALIDATE_EMAIL)){
+if(!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){
     $_SESSION['not_valid_mail'] = true;
+    echo $mail;
+    echo $_SESSION['not_valid_mail'];
     header('Location: ../signup-page.php');
     exit();
 }
